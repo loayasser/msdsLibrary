@@ -1,6 +1,6 @@
 // List of documents (replace with actual filenames in your documents folder)
 const documents = [
-    { name: "311–DURA PVA PRIMER - MSDS", file: "documents/311–DURA PVA PRIMER.pdf" },
+    { name: "311–DURA PVA PRIMER - MSDS", file: "documents/311 – DURA PVA PRIMER.pdf" },
     { name: "Chlorinated Polyvinyl Chloride/ Solvent Mixture - MSDS", file: "documents/Chlorinated Polyvinyl.pdf" },
     { name: "FlexPRIME Part A | SUPRASEC® 9584 | SDS 400001002735 - MSDS", file: "documents/231943.pdf" },
     { name: "RENITHERM TOP COAT, Komp.B Artikel-Nr.: RE-TC.19001.B - MSDS", file: "documents/MSDS_RENITHERM-TC-B_GB.pdf"},
