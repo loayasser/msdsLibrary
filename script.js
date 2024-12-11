@@ -34,6 +34,7 @@ const documents = [
     { name: "RENITHERM PMA 600 - MSDS", file: "documents/RENITHERM PMA 600.pdf" },
     { name: "polyfix adhesive - MSDS", file: "documents/polyfix adhesive SDS.pdf" },
     { name: "Nitobond EP Base - MSDS", file: "documents/Nitobond-EP Base-SDS.pdf" },
+    { name: "Nitobond EP Hardener - MSDS", file: "documents/Nitobond-EP Hardener-SDS.pdf" },
     { name: "ISOVER Glass wool - MSDS", file: "documents/msds-fi-isover-glaswool.pdf" },
     { name: "Kwik Grip - MSDS", file: "documents/Kwik SDS.pdf" },
     { name: "Jotafloor Topcoat E Comp A - MSDS", file: "documents/jotun topcoat SDS.pdf" },
@@ -43,26 +44,42 @@ const documents = [
     { name: "Weberdry prime SB - MSDS", file: "documents/GAR prime_SB-SDS.pdf" },
     { name: "Fosroc Cure B - MSDS", file: "documents/Fosroc-Cure-B-SDS25548-44.pdf" },
     { name: "Formcoat WB - MSDS", file: "documents/Formcoat WB_SDS.pdf" },
+    { name: "Ezy Bond Construction Adhesive - MSDS", file: "documents/1819_Ezy Bond Construction Adhesive SDS (1).pdf" },
+    { name: "GC 22 - MSDS", file: "Material-safety-datasheet-GC-22-EN-Material-safety-datasheet-IBD.pdf" },
 ];
 
+documents.sort((a, b) => a.name.localeCompare(b.name));
+
+// Populate the list of documents when the page loads
+window.onload = function () {
+    displayDocuments(documents);
+};
+function displayDocuments(docs) {
+    const results = document.getElementById("results");
+    results.innerHTML = ""; // Clear the current list
+
+    docs.forEach((doc, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. `; // Add numbering
+        const link = document.createElement("a");
+        link.href = doc.file;
+        link.textContent = doc.name;
+        link.target = "_blank"; // Open in a new tab
+        li.appendChild(link);
+        results.appendChild(li);
+    });
+}
 // Function to search documents
 function searchDocuments() {
     const query = document.getElementById("searchBar").value.toLowerCase();
-    const results = document.getElementById("results");
 
-    // Clear previous results
-    results.innerHTML = "";
+    // If the search bar is empty, display the full list of documents
+    if (query.trim() === "") {
+        displayDocuments(documents);
+        return;
+    }
 
-    // Filter and display results
-    documents
-        .filter(doc => doc.name.toLowerCase().includes(query))
-        .forEach(doc => {
-            const li = document.createElement("li");
-            const link = document.createElement("a");
-            link.href = doc.file;
-            link.textContent = doc.name;
-            link.target = "_blank"; // Open in a new tab
-            li.appendChild(link);
-            results.appendChild(li);
-        });
+    // Filter documents and display the filtered results
+    const filteredDocs = documents.filter(doc => doc.name.toLowerCase().includes(query));
+    displayDocuments(filteredDocs);
 }
