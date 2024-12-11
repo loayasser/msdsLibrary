@@ -28,7 +28,21 @@ const documents = [
     { name: "Quickmast 341 - Hardener - MSDS", file: "documents/Quickmast 341 - Hardener_MSDS_0.pdf" },
     { name: "RENITHERM Top Coat - MSDS", file: "documents/MSDS_RENITHERM-TC-A_GB.pdf" },
     { name: "YELLOW 77 Wire Pulling Lubricant - MSDS", file: "documents/Yellow 77.pdf" },
-    { name: "Ezy Bond Construction Adhesive  - MSDS", file: "documents/1819_Ezy Bond Construction Adhesive SDS (1).pdf" },
+    { name: "WELD-ON_C-65 - MSDS", file: "documents/WELD-ON_C-65_SDS.pdf" },
+    { name: "Aerosol ALL Purpose Spray Paint  - MSDS", file: "documents/SPRAY PAINT SDS.pdf" },
+    { name: "RENITHERM TOP COAT KOMP - MSDS", file: "documents/RENITHERM TOP COAT.pdf" },
+    { name: "RENITHERM PMA 600 - MSDS", file: "documents/RENITHERM PMA 600.pdf" },
+    { name: "polyfix adhesive - MSDS", file: "documents/polyfix adhesive SDS.pdf" },
+    { name: "Nitobond EP Base - MSDS", file: "documents/Nitobond-EP Base-SDS.pdf" },
+    { name: "ISOVER Glass wool - MSDS", file: "documents/msds-fi-isover-glaswool.pdf" },
+    { name: "Kwik Grip - MSDS", file: "documents/Kwik SDS.pdf" },
+    { name: "Jotafloor Topcoat E Comp A - MSDS", file: "documents/jotun topcoat SDS.pdf" },
+    { name: "Fenomastic Zero Matt - MSDS", file: "documents/jotun fenomastic SDS.pdf" },
+    { name: "Hempathane Fast Dry 55759 Base - MSDS", file: "documents/HEMPATHENE 55759.pdf" },
+    { name: "GT Proof AC (LIQUID) - MSDS", file: "documents/GT Proof AC - LIQUID.pdf" },
+    { name: "Weberdry prime SB - MSDS", file: "documents/GAR prime_SB-SDS.pdf" },
+    { name: "Fosroc Cure B - MSDS", file: "documents/Fosroc-Cure-B-SDS25548-44.pdf" },
+    { name: "Formcoat WB - MSDS", file: "documents/Formcoat WB_SDS.pdf" },
 ];
 
 // Function to search documents
