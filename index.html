@@ -8,27 +8,8 @@
 </head>
 <body>
     <h1>MSDS Library</h1>
-
-    <nav>
-        <button onclick="showLibrary()">Library</button>
-        <button onclick="showUpload()">Upload File</button>
-    </nav>
-
-    <!-- Library Section -->
-    <div id="library">
-        <input type="text" id="searchBar" placeholder="Search for a document..." oninput="searchDocuments()">
-        <ul id="results"></ul>
-    </div>
-
-    <!-- Upload Section -->
-    <div id="upload" style="display: none;">
-        <h2>Upload a New Document</h2>
-        <form id="uploadForm">
-            <input type="file" id="fileInput" name="file" required>
-            <button type="submit">Upload</button>
-        </form>
-        <p id="uploadMessage"></p>
-    </div>
+    <input type="text" id="searchBar" placeholder="Search for a document..." oninput="searchDocuments()">
+    <ul id="results"></ul>
 
     <script src="script.js"></script>
 </body>
