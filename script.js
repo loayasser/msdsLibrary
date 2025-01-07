@@ -46,6 +46,8 @@ const documents = [
     { name: "Formcoat WB - MSDS", file: "documents/Formcoat WB_SDS.pdf" },
     { name: "Ezy Bond Construction Adhesive - MSDS", file: "documents/1819_Ezy Bond Construction Adhesive SDS (1).pdf" },
     { name: "GC 22 - MSDS", file: "Material-safety-datasheet-GC-22-EN-Material-safety-datasheet-IBD.pdf" },
+    { name: "AKPEROX A50 - MSDS", file: "AKPEROX_A50_MSDS_EN.pdf" },
+    { name: "PURINJECT 1C 115 ECO - MSDS", file: "MSDS CIKOinject PUR-1.pdf" },
 ];
 
 documents.sort((a, b) => a.name.localeCompare(b.name));
