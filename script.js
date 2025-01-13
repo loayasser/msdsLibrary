@@ -49,7 +49,7 @@ const documents = [
     { name: "AKPEROX A50 - MSDS", file: "AKPEROX_A50_MSDS_EN.pdf" },
     { name: "PURINJECT 1C 115 ECO - MSDS", file: "MSDS CIKOinject PUR-1.pdf" },
     { name: "GT BOND EP Base - MSDS", file: "GT BOND EP Base.pdf" },
-    { name: "GT Bond EP Hardener - MSDS", file: "GT Bond EP Hardener.pdf" },
+    { name: "GT Bond EP Hardener - MSDS", file: "GT Bond EP Hardener.pdf" }
 ];
 
 documents.sort((a, b) => a.name.localeCompare(b.name));
