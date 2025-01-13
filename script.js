@@ -49,7 +49,7 @@ const documents = [
     { name: "AKPEROX A50 - MSDS", file: "documents/AKPEROX_A50_MSDS_EN.pdf" },
     { name: "PURINJECT 1C 115 ECO - MSDS", file: "documents/MSDS CIKOinject PUR-1.pdf" },
     { name: "GT BOND EP Base - MSDS", file: "documents/GT BOND EP Base.pdf" },
-    { name: "GT Bond EP Hardener - MSDS", file: "documents/GT Bond EP Hardener.pdf" }
+    { name: "GT Bond EP Hardener - MSDS", file: "documents/GT Bond EP Hardener.pdf" },
     { name: "ORYX ALUMINIUM PAINT - MSDS", file: "documents/National Paint Protective Coating Aluminium Paint.pdf" }
 ];
 
