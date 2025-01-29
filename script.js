@@ -87,6 +87,8 @@ const documents = [
     { name: "BITUMEN-PRIMER - MSDS", file: "documents/BITUMEN-PRIMER.pdf" },
 ];
 
+
+
 documents.sort((a, b) => a.name.localeCompare(b.name));
 
 // Populate the list of documents when the page loads
@@ -122,3 +124,14 @@ function searchDocuments() {
     const filteredDocs = documents.filter(doc => doc.name.toLowerCase().includes(query));
     displayDocuments(filteredDocs);
 }
+// =========== ADDED "Chemical Quantity" Button Functionality (Line 119) ===========
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the "Chemical Quantity" button
+    const chemicalQuantityBtn = document.getElementById("chemicalQuantityBtn");
+
+    // Add click event listener to the button
+    chemicalQuantityBtn.addEventListener("click", function () {
+        // Open "chemical_quantity.pdf" in a new tab
+        window.open("documents/Chemical Quantity Jan 2025.pdf", "_blank");
+    });
+});
