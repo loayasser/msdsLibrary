@@ -76,7 +76,15 @@ const documents = [
     { name: "S100 PVC - MSDS", file: "documents/S100 PVC.pdf" },
     { name: "GT CURE AB - MSDS", file: "documents/GT CURE AB.pdf" },
     { name: "HEMPEL THINNER 08080 - MSDS", file: "documents/HEMPEL THINNER 08080.pdf" },
-    { name: "HEMPEL THINNER 8450 - MSDS", file: "documents/HEMPEL THINNER 8450.pdf" }
+    { name: "SUPRASEC 5025 - MSDS", file: "documents/SUPRASEC 5025.pdf" },
+    { name: "DALTOFOAM TE 34280 - MSDS", file: "documents/DALTOFOAM TE 34280.pdf" },
+    { name: "National Penetrating Siloxane Primer - MSDS", file: "documents/National_Penetrating_Siloxane_Primer_Sealer.pdf" },
+    { name: "CRAYCOAT 81-10 - MSDS", file: "documents/CRAYCOAT 81-10.pdf" },
+    { name: "Bostick Adhesives - MSDS", file: "documents/Bostick Adhesives.pdf" },
+    { name: "ACF Non-Sag Epoxy Putty Part A - MSDS", file: "documents/ACF Non-Sag Epoxy Putty Part A.pdf" },
+    { name: "Diff Floor Cleaner - MSDS", file: "documents/Diff Floor Cleaner.pdf" },
+    { name: "ROB Guard Epoxy Top Coat - MSDS", file: "documents/ROB Guard Epoxy Top Coat.pdf" },
+    { name: "BITUMEN-PRIMER - MSDS", file: "documents/BITUMEN-PRIMER.pdf" },
 ];
 
 documents.sort((a, b) => a.name.localeCompare(b.name));
