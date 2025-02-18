@@ -90,7 +90,7 @@ const documents = [
     { name: "National Paint Matt Emulsion - MSDS", file: "documents/National Paint Matt Emulsion.pdf" },
     { name: "NATIONAL PAINT PVA PRIMER - MSDS", file: "documents/NATIONAL PAINT PVA PRIMER.pdf" },
     { name: "NATIONAL PAINT TEXO COMPOUND - MSDS", file: "documents/NATIONAL PAINT TEXO COMPOUND.pdf" },
-    { name: "Jotashield topcoat silk - MSDS", file: "documents/Jotashield topcoat silk.pdf" },
+    { name: "Jotashield topcoat silk - MSDS", file: "documents/Jotashield topcoat silk.pdf" }
 ];
 
 documents.sort((a, b) => a.name.localeCompare(b.name));
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add click event listener to the button
     chemicalQuantityBtn.addEventListener("click", function () {
         // Open "chemical_quantity.pdf" in a new tab
-        window.open("documents/Chemical Quantity Jan 2025.pdf", "_blank");
+        window.open("documents/CMHS CHEMICAL QUANTITY FEB 2025.pdf", "_blank");
     });
 });
 const handleFileUpload = async (file) => {
