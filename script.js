@@ -85,9 +85,13 @@ const documents = [
     { name: "Diff Floor Cleaner - MSDS", file: "documents/Diff Floor Cleaner.pdf" },
     { name: "ROB Guard Epoxy Top Coat - MSDS", file: "documents/ROB Guard Epoxy Top Coat.pdf" },
     { name: "BITUMEN-PRIMER - MSDS", file: "documents/BITUMEN-PRIMER.pdf" },
+    { name: "Cempatch - MSDS", file: "documents/Cempatch SBR100_MSDS_1.pdf" },
+    { name: "Jotun Pva Primer - MSDS", file: "documents/jotun pva primer.pdf" },
+    { name: "National Paint Matt Emulsion - MSDS", file: "documents/National Paint Matt Emulsion.pdf" },
+    { name: "NATIONAL PAINT PVA PRIMER - MSDS", file: "documents/NATIONAL PAINT PVA PRIMER.pdf" },
+    { name: "NATIONAL PAINT TEXO COMPOUND - MSDS", file: "documents/NATIONAL PAINT TEXO COMPOUND.pdf" },
+    { name: "Jotashield topcoat silk - MSDS", file: "documents/Jotashield topcoat silk.pdf" },
 ];
-
-
 
 documents.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -135,3 +139,14 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open("documents/Chemical Quantity Jan 2025.pdf", "_blank");
     });
 });
+const handleFileUpload = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    await fetch("http://localhost:5000/upload", {
+        method: "POST",
+        body: formData,
+    });
+
+    fetchFiles(); // Refresh file list
+};
