@@ -1,66 +1,77 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
 const multer = require("multer");
+const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
-require("dotenv").config();
 
 const app = express();
+const PORT = 5000;
+
+// Enable CORS (Allows frontend to access backend)
 app.use(cors());
 app.use(express.json());
 
+// Set up storage for file uploads
 const uploadDir = path.join(__dirname, "uploads");
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
-}
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
-// Multer configuration for file uploads
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "uploads/");
-    },
+    destination: uploadDir,
     filename: (req, file, cb) => {
-        cb(null, Date.now() + "-" + file.originalname);
+        cb(null, file.originalname); // Keep the original file name
     },
 });
+
 const upload = multer({ storage });
 
-// MongoDB connection (if needed)
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+// Serve static files (Uploaded documents)
+app.use("/uploads", express.static(uploadDir));
+
+// Get list of uploaded files
+app.get("/files", (req, res) => {
+    fs.readdir(uploadDir, (err, files) => {
+        if (err) {
+            return res.status(500).json({ error: "Failed to list files." });
+        }
+
+        const fileList = files.map((file) => ({
+            name: file,
+            file: `http://localhost:${PORT}/uploads/${file}`,
+        }));
+
+        res.json(fileList);
+    });
 });
 
-const FileSchema = new mongoose.Schema({
-    filename: String,
-    path: String,
-    uploadedAt: { type: Date, default: Date.now },
-});
-const File = mongoose.model("File", FileSchema);
-
-// Upload file API
-app.post("/upload", upload.single("file"), async (req, res) => {
-    const file = new File({ filename: req.file.filename, path: req.file.path });
-    await file.save();
-    res.json({ message: "File uploaded successfully", file });
+// Upload a new file
+app.post("/upload", upload.single("file"), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded." });
+    }
+    res.json({ message: "File uploaded successfully!", file: req.file.filename });
 });
 
-// Get all files API
-app.get("/files", async (req, res) => {
-    const files = await File.find();
-    res.json(files);
+// Delete a file
+app.post("/delete", (req, res) => {
+    const { fileName } = req.body;
+    if (!fileName) {
+        return res.status(400).json({ error: "No file specified." });
+    }
+
+    const filePath = path.join(uploadDir, fileName);
+    fs.unlink(filePath, (err) => {
+        if (err) {
+            return res.status(500).json({ error: "Failed to delete file." });
+        }
+        res.json({ message: "File deleted successfully!" });
+    });
 });
 
-// Delete file API
-app.delete("/files/:id", async (req, res) => {
-    const file = await File.findById(req.params.id);
-    if (!file) return res.status(404).json({ message: "File not found" });
-
-    fs.unlinkSync(file.path);
-    await File.deleteOne({ _id: req.params.id });
-    res.json({ message: "File deleted successfully" });
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
-
-// Start server
-app.listen(5000, () => console.log("Server running on port 5000"));
+// Define the root route
+app.get("/", (req, res) => {
+    res.send("Welcome to the File Upload API. Use /files to get files, /upload to upload, and /delete to delete files.");
+});

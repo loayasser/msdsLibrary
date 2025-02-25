@@ -139,14 +139,3 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open("documents/CMHS CHEMICAL QUANTITY FEB 2025.pdf", "_blank");
     });
 });
-const handleFileUpload = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    await fetch("http://localhost:5000/upload", {
-        method: "POST",
-        body: formData,
-    });
-
-    fetchFiles(); // Refresh file list
-};
